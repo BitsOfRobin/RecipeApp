@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="headerStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/header_purple</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="headerValStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="subHeaderStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="normalBoldStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="normalStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="menuStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="rowItemMainStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="rowItemStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="commentStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

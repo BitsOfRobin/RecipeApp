@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoogleProfile"
+    android:id="@+id/drawerLayout">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ECD285">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_color="@color/white"
+            android:id="@+id/userImg"
+            android:layout_width="103dp"
+            android:layout_height="161dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/google" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ECD285"/>
+
+        <TextView
+            android:id="@+id/emailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textColor="@color/black"
+            style="@style/normalBoldStyle"
+            android:text="@string/email"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ECD285"/>
+
+        <TextView
+            android:id="@+id/DisplayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="@string/name"
+            style="@style/normalBoldStyle" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#ECD285"/>
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+
+            android:layout_gravity="center"
+            android:text="@string/log_out"
+            style="@style/buttonStyle"/>
+
+    </LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
