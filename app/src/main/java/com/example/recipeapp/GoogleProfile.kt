@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+
 import androidx.drawerlayout.widget.DrawerLayout
 
 
@@ -115,10 +115,13 @@ class GoogleProfile : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_Profile-> {
-                    // Handle Home menu item click
+                    val intent=Intent(this,GoogleProfile::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.navigation_AddRecipe -> {
+                    val intent=Intent(this,RecipeAdd::class.java)
+                    startActivity(intent)
                     // Handle Search menu item click
                     true
                 }
