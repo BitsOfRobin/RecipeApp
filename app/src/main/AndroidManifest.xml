@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecipeApp">
         <activity
+            android:name=".viewRecipe"
+            android:exported="false" />
+        <activity
             android:name=".RecipeAdd"
             android:exported="false" />
         <activity
             android:name=".addrecipe"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Testing2"
             android:exported="false" />

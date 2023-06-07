@@ -118,7 +118,7 @@ class RecipeAdd : AppCompatActivity() {
 
         val letter:Boolean=isLetters(recipeName)
 
-        if(letter&&recipeName!=" "&&recipeName!="")
+        if(recipeName!=" "&&recipeName!="")
         {
             val cache=MyCache()
 
@@ -264,27 +264,27 @@ class RecipeAdd : AppCompatActivity() {
                         Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
                     }
 
-                try{
-                    uploadImage()
-                }
+//                try{
+//                    uploadImage()
+//                }
+//
+//
+//                catch (e:UninitializedPropertyAccessException){
+//                    Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
+//
+//                }
 
 
-                catch (e:UninitializedPropertyAccessException){
-                    Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
-
-                }
-
-
-                val dialog = AlertDialog.Builder(this)
-                    .setTitle("Recipe Created")
-                    .setMessage("Your recipe has been created. Press OK navigate to homepage")
-                    .setPositiveButton("OK") { _, _ ->
-                        // Navigate to the page
-                        val intent= Intent(this,GoogleProfile::class.java)
-
-                    }
-                    .create()
-                dialog.show()
+//                val dialog = AlertDialog.Builder(this)
+//                    .setTitle("Recipe Created")
+//                    .setMessage("Your recipe has been created. Press OK navigate to homepage")
+//                    .setPositiveButton("OK") { _, _ ->
+//                        // Navigate to the page
+//                        val intent= Intent(this,GoogleProfile::class.java)
+//
+//                    }
+//                    .create()
+//                dialog.show()
 
 
             }
@@ -344,7 +344,8 @@ class RecipeAdd : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_ViewRecipe -> {
-                    // Handle Profile menu item click
+                    val intent=Intent(this,viewRecipe::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
