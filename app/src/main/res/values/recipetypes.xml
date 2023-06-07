@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recipeTypes_values_array">
+        <item>Value 1</item>
+        <item>Value 2</item>
+        <item>Value 3</item>
+        <!-- Add more values as needed -->
+    </string-array>
+</resources>
