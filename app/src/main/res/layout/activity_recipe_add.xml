@@ -48,14 +48,14 @@
                 android:text="select image"
                 />
 
-            <Button
-                android:id="@+id/uploadImageBtn"
-                android:text="upload Image"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
+<!--            <Button-->
+<!--                android:id="@+id/uploadImageBtn"-->
+<!--                android:text="upload Image"-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_gravity="center"-->
 
-              />
+<!--              />-->
             <TextView
                 android:text="Recipe Name"
 
@@ -111,7 +111,14 @@
                 android:importantForAutofill="no"
                 tools:ignore="LabelFor,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
 
+            <TextView
+                android:id="@+id/errRecipeIngredients"
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#F44336"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp" />
             <TextView
                 android:text="Recipe steps"
 
@@ -134,6 +141,16 @@
 
                 android:importantForAutofill="no"
                 tools:ignore="LabelFor,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+
+
+            <TextView
+                android:id="@+id/errRecipeSteps"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#F44336"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp" />
 
             <Spinner
                 android:id="@+id/spinnerRecipeTypes"

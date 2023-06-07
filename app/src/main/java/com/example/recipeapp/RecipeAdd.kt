@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
 import com.example.recipeapp.databinding.ActivityGoogleProfileBinding
 import com.example.recipeapp.databinding.ActivityRecipeAddBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -45,20 +46,20 @@ class RecipeAdd : AppCompatActivity() {
 
         }
 
-        binding.uploadImageBtn.setOnClickListener {
-
-            try{
-                uploadImage()
-            }
-
-
-            catch (e:UninitializedPropertyAccessException){
-                Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
-
-            }
-
-
-        }
+//        binding.uploadImageBtn.setOnClickListener {
+//
+//            try{
+//                uploadImage()
+//            }
+//
+//
+//            catch (e:UninitializedPropertyAccessException){
+//                Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
+//
+//            }
+//
+//
+//        }
 
 
             getRecipeData()
@@ -187,11 +188,11 @@ class RecipeAdd : AppCompatActivity() {
 
             if (!hasFocus) {
                 val input = binding.recipeName.text.toString()
-                if (input.isNotEmpty()) {
-                    // validate input here
-                    if (!isLetters(input)) {
-                        // clear error message if input is valid
-                        binding.errRecipeName.text = "Profession contain non alphabet or empty"
+                if (input.isEmpty()) {
+
+
+
+                        binding.errRecipeName.text = "recipe name is empty"
                     } else {
                         // set error message if input is invalid
                         binding.errRecipeName.text=" "
@@ -199,8 +200,38 @@ class RecipeAdd : AppCompatActivity() {
                 }
             }
 
+
+        binding.recipeIngredients.setOnFocusChangeListener { v, hasFocus ->
+
+            if (!hasFocus) {
+                val input = binding.recipeIngredients.text.toString()
+                if (input.isEmpty()) {
+
+
+
+                    binding.errRecipeIngredients.text = "recipe ingredients is empty"
+                } else {
+                    // set error message if input is invalid
+                    binding.errRecipeIngredients.text=" "
+                }
+            }
         }
 
+        binding.recipeSteps.setOnFocusChangeListener { v, hasFocus ->
+
+            if (!hasFocus) {
+                val input = binding.recipeSteps.text.toString()
+                if (input.isEmpty()) {
+
+
+
+                    binding.errRecipeSteps.text = "recipe steps is empty"
+                } else {
+                    // set error message if input is invalid
+                    binding.errRecipeSteps.text=" "
+                }
+            }
+        }
         btn.setOnClickListener {
 
 
@@ -216,6 +247,33 @@ class RecipeAdd : AppCompatActivity() {
             mFirebaseDatabaseInstance= FirebaseFirestore.getInstance()
             val recipeName=binding.recipeName.text.toString()
             val letter=isLetters(recipeName)
+            val steps=binding.recipeSteps.text.toString()
+
+            if(recipeName.isEmpty()){
+
+                binding.errRecipeName.text = "recipe name is empty"
+            }
+            else{
+                binding.errRecipeName.text=" "
+            }
+
+             if(steps.isEmpty()){
+
+                 binding.errRecipeSteps.text = "recipe steps is empty"
+            }
+            else{
+
+                 binding.errRecipeSteps.text=" "
+             }
+            if(ingredients.isEmpty()){
+
+                binding.errRecipeIngredients.text = "recipe ingredients is empty"
+            }
+            else{
+
+                binding.errRecipeSteps.text=" "
+            }
+
 
             if(!letter){
 
@@ -230,75 +288,122 @@ class RecipeAdd : AppCompatActivity() {
             }
 
 
-
-
-        val steps=binding.recipeSteps.text.toString()
-        if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
-            &&recipeType!=""&&recipeType!=" ")
-            {
-                val recipe= hashMapOf(
-
-                    "recipeName" to recipeName,
-                    "ingredients" to ingredients,
-                    "steps" to steps,
-                    "recipeTypes" to recipeType
-
-
-
-
-                )
-//        val  doc =doctor?.uid
-
-//
-
-
-                mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.set(recipe)?.addOnSuccessListener {
-
-
-                    Toast.makeText(this,"Successfully added recipe",Toast.LENGTH_SHORT).show()
-
+            try{
+                if(ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
+                    &&recipeType!=""&&recipeType!=" "){
+                    uploadImage()
 
                 }
-                    ?.addOnFailureListener {
+               else{
+                   Toast.makeText(this,"Please fill up all data",Toast.LENGTH_LONG).show()
 
-                        Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
-                    }
+                }
+                addRecipe(ingredients,steps,recipeName,recipeType)
+            }
 
-//                try{
-//                    uploadImage()
+
+            catch (e:UninitializedPropertyAccessException){
+                Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+//        if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
+//            &&recipeType!=""&&recipeType!=" ")
+//            {
+//                val recipe= hashMapOf(
+//
+//                    "recipeName" to recipeName,
+//                    "ingredients" to ingredients,
+//                    "steps" to steps,
+//                    "recipeTypes" to recipeType
+//
+//
+//
+//
+//                )
+////        val  doc =doctor?.uid
+//
+////
+//
+//
+//                mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.set(recipe)?.addOnSuccessListener {
+//
+//
+//                    Toast.makeText(this,"Successfully added recipe",Toast.LENGTH_SHORT).show()
+//
+//
 //                }
+//                    ?.addOnFailureListener {
 //
-//
-//                catch (e:UninitializedPropertyAccessException){
-//                    Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
-//
-//                }
-
-
-//                val dialog = AlertDialog.Builder(this)
-//                    .setTitle("Recipe Created")
-//                    .setMessage("Your recipe has been created. Press OK navigate to homepage")
-//                    .setPositiveButton("OK") { _, _ ->
-//                        // Navigate to the page
-//                        val intent= Intent(this,GoogleProfile::class.java)
-//
+//                        Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
 //                    }
-//                    .create()
-//                dialog.show()
-
-
-            }
-
-            else{
-
-                Toast.makeText(this,"Inputs are empty",Toast.LENGTH_SHORT).show()
-
-            }
+//
+//
+//
+//
+//            }
+//
+//            else{
+//
+//                Toast.makeText(this,"Inputs are empty",Toast.LENGTH_SHORT).show()
+//
+//            }
 
         }
 
 
     }
+
+
+    private fun addRecipe(ingredients:String,steps:String,recipeName:String,recipeType:String){
+        val letter=isLetters(recipeName)
+        if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
+            &&recipeType!=""&&recipeType!=" ")
+        {
+            val recipe= hashMapOf(
+
+                "recipeName" to recipeName,
+                "ingredients" to ingredients,
+                "steps" to steps,
+                "recipeTypes" to recipeType
+
+
+
+
+            )
+//        val  doc =doctor?.uid
+
+//
+
+
+            mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.set(recipe)?.addOnSuccessListener {
+
+
+                Toast.makeText(this,"Successfully added recipe",Toast.LENGTH_SHORT).show()
+
+
+            }
+                ?.addOnFailureListener {
+
+                    Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
+                }
+
+
+
+
+        }
+
+        else{
+
+            Toast.makeText(this,"Inputs are empty",Toast.LENGTH_SHORT).show()
+
+        }
+
+
+
+    }
+
 
     private fun isLetters(string: String): Boolean {
         return string.matches("^[a-zA-Z0123456789 ]*$".toRegex())

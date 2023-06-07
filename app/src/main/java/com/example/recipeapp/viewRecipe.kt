@@ -22,7 +22,7 @@ class viewRecipe : AppCompatActivity() {
         binding=ActivityViewRecipeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        showBottomNavi()
 
 
 //        setContentView(R.layout.activity_view_recipe)
@@ -271,32 +271,32 @@ class viewRecipe : AppCompatActivity() {
     }
 
 
-//    private fun showBottomNavi(){
-//
-//        val bottomNavigation: BottomNavigationView = binding.bottomNavigationView
-//
-//        bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.navigation_Profile-> {
-//                    val intent= Intent(this,GoogleProfile::class.java)
-//                    startActivity(intent)
-//                    true
-//                }
-//                R.id.navigation_AddRecipe -> {
-//                    val intent= Intent(this,RecipeAdd::class.java)
-//                    startActivity(intent)
-//                    // Handle Search menu item click
-//                    true
-//                }
-//                R.id.navigation_ViewRecipe -> {
-//                    // Handle Profile menu item click
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-//
-//    }
+    private fun showBottomNavi(){
+
+        val bottomNavigation: BottomNavigationView = binding.bottomNavigationView
+
+        bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_Profile-> {
+                    val intent= Intent(this,GoogleProfile::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.navigation_AddRecipe -> {
+                    val intent= Intent(this,RecipeAdd::class.java)
+                    startActivity(intent)
+                    // Handle Search menu item click
+                    true
+                }
+                R.id.navigation_ViewRecipe -> {
+                    // Handle Profile menu item click
+                    true
+                }
+                else -> false
+            }
+        }
+
+    }
 
 
 }
