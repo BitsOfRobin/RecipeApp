@@ -62,18 +62,6 @@ class viewRecipe : AppCompatActivity() {
 
 
 
-//                val customAdapter= CustomAdapterRecycleView(
-//                    it as ArrayList<recipe>, this,object : CustomAdapterRecycleView.OnItemClickListener {
-//                        override fun onUpdateClick(position: Int) {
-//                            TODO("Not yet implemented")
-//                        }
-//
-//                        override fun onDeleteClick(position: Int) {
-//                            TODO("Not yet implemented")
-//                        }
-//
-//
-//                    })
 
                 val customAdapter=CustomAdapterRecycleView(
 
@@ -165,7 +153,7 @@ class viewRecipe : AppCompatActivity() {
 //                        showMsg(p0)
 
                     viewRecipeViewModel.searchDoctor(p0)
-//                    paramForSearching(p0)
+                    paramForSearching(p0)
 //                        for (i in arraylistPro.indices) {
 //                            if (arraylistPro[i].contains(p0, true)) {
 
@@ -204,7 +192,7 @@ class viewRecipe : AppCompatActivity() {
 //                        showMsg(p0)
 
                     viewRecipeViewModel.searchDoctor(p0)
-//                    paramForSearching(p0)
+                    paramForSearching(p0)
                 } else {
 //                        getAdapter()
 //                        paramForSearching()
@@ -252,7 +240,35 @@ class viewRecipe : AppCompatActivity() {
 
 
     }
+    private fun paramForSearching(searchResult:String){
+        val recipeView=binding.recipeRecycleView
 
+       viewRecipeViewModel.recipeListLiveSearch.observe(this, androidx.lifecycle.Observer {
+
+            if(it.isNotEmpty()) {
+                val adapter =
+                    CustomAdapterRecycleView(it as ArrayList<recipe>, this, object :
+                        CustomAdapterRecycleView.OnItemClickListener {
+                        override fun onUpdateClick(position: Int) {
+                            TODO("Not yet implemented")
+                        }
+
+                        override fun onDeleteClick(position: Int) {
+                          longClickForDocDel(position)
+                        }
+
+
+                    })
+
+
+
+
+                adapter.notifyDataSetChanged()
+                recipeView.adapter = adapter
+            }
+        })
+
+    }
 
 
 //    private fun showBottomNavi(){

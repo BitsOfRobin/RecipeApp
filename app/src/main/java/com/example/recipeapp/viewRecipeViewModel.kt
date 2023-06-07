@@ -376,7 +376,7 @@ class ViewRecipeViewModel:ViewModel() {
 
 
                 val fireb =
-                    Firebase.storage.reference.child("Img/${recipeList.get(i).recipeName}.jpg")
+                    Firebase.storage.reference.child("RecipeImg/${recipeList.get(i).recipeName}.jpg")
                 fireb.delete().addOnSuccessListener {
 
                 }.addOnFailureListener {
