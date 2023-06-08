@@ -67,11 +67,11 @@
                 android:id="@+id/recipeName"
 
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:autofillHints="doctor profession"
 
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:minHeight="48dp"
                 android:maxLength="100"
                 android:textStyle="italic"
@@ -99,11 +99,12 @@
                 android:id="@+id/recipeIngredients"
 
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:autofillHints="doctor profession"
 
-                android:inputType="text"
+
+                android:inputType="textMultiLine"
                 android:minHeight="48dp"
                 android:maxLength="100"
                 android:textStyle="italic"
@@ -130,11 +131,12 @@
                 android:id="@+id/recipeSteps"
 
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:autofillHints="doctor profession"
 
-                android:inputType="text"
+
+                android:inputType="textMultiLine"
                 android:minHeight="48dp"
                 android:maxLength="100"
                 android:textStyle="italic"

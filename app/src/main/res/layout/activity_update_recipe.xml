@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="30dp"
         android:background="#ECD285">
         <ScrollView
             android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/recipeName"
 
                     android:layout_width="match_parent"
@@ -71,12 +72,12 @@
                     android:layout_marginStart="20dp"
                     android:autofillHints="doctor profession"
 
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:maxLength="100"
-                    android:textStyle="italic"
-
                     android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:minHeight="48dp"
+
+                    android:textStyle="italic"
                     tools:ignore="LabelFor,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
 
                 <TextView
@@ -99,11 +100,11 @@
                     android:id="@+id/recipeIngredients"
 
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginStart="20dp"
                     android:autofillHints="doctor profession"
 
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:minHeight="48dp"
                     android:maxLength="100"
                     android:textStyle="italic"
@@ -130,11 +131,11 @@
                     android:id="@+id/recipeSteps"
 
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginStart="20dp"
                     android:autofillHints="doctor profession"
+                    android:inputType="textMultiLine"
 
-                    android:inputType="text"
                     android:minHeight="48dp"
                     android:maxLength="100"
                     android:textStyle="italic"
@@ -192,10 +193,10 @@
 
         </ScrollView>
     </LinearLayout>
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/bottomNavigationView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="30dp"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        app:menu="@menu/bottom_navigation_menu" />-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_navigation_menu" />
 </RelativeLayout>

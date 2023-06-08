@@ -352,7 +352,7 @@ class updateRecipe : AppCompatActivity() {
 //
 
 
-                mFirebaseDatabaseInstance?.collection("recipe")?.document(receivedRecipeName)?.set(
+                mFirebaseDatabaseInstance?.collection("recipe")?.document(receivedRecipeName)?.update(
                     recipe as Map<String, Any>
                 )?.addOnSuccessListener {
 
