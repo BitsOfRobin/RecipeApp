@@ -163,7 +163,7 @@ class RecipeAdd : AppCompatActivity() {
 
 
 
-        val btn=binding.uploadRecipe
+        val btn=binding.updateRecipe
         var recipeType=""
         binding.spinnerRecipeTypes.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
             override fun onItemSelected(

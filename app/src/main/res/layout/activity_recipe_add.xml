@@ -159,7 +159,7 @@
 
 
             <Button
-                android:id="@+id/uploadRecipe"
+                android:id="@+id/updateRecipe"
                 android:text="upload recipe"
                 android:layout_width="250dp"
                 android:layout_height="50dp"

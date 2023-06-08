@@ -67,7 +67,7 @@ class viewRecipe : AppCompatActivity() {
 
                     it as ArrayList<recipe>,this,object :CustomAdapterRecycleView.OnItemClickListener{
                         override fun onUpdateClick(position: Int) {
-                            TODO("Not yet implemented")
+                            toUpdateRecipe(position,it as ArrayList<recipe>)
                         }
 
                         override fun onDeleteClick(position: Int) {
@@ -250,7 +250,8 @@ class viewRecipe : AppCompatActivity() {
                     CustomAdapterRecycleView(it as ArrayList<recipe>, this, object :
                         CustomAdapterRecycleView.OnItemClickListener {
                         override fun onUpdateClick(position: Int) {
-                            TODO("Not yet implemented")
+
+                            toUpdateRecipe(position,it as ArrayList<recipe>)
                         }
 
                         override fun onDeleteClick(position: Int) {
@@ -267,6 +268,17 @@ class viewRecipe : AppCompatActivity() {
                 recipeView.adapter = adapter
             }
         })
+
+    }
+
+
+    private fun toUpdateRecipe(position:Int,arrRecipe: ArrayList<recipe>){
+
+        val intent = Intent(this, updateRecipe::class.java)
+        intent.putExtra("recipeName", arrRecipe[position].recipeName.toString())
+//        intent.putExtra("position", position)
+        startActivity(intent)
+//        Toast.makeText(this,arrRecipe[position].recipeName.toString(),Toast.LENGTH_LONG).show()
 
     }
 
