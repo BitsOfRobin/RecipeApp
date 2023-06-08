@@ -276,6 +276,8 @@ class viewRecipe : AppCompatActivity() {
 
         val intent = Intent(this, updateRecipe::class.java)
         intent.putExtra("recipeName", arrRecipe[position].recipeName.toString())
+        intent.putExtra("recipeIngredients", arrRecipe[position].ingredients .toString())
+        intent.putExtra("recipeSteps", arrRecipe[position].step.toString())
 //        intent.putExtra("position", position)
         startActivity(intent)
 //        Toast.makeText(this,arrRecipe[position].recipeName.toString(),Toast.LENGTH_LONG).show()

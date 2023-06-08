@@ -162,7 +162,7 @@ class GoogleProfile : AppCompatActivity() {
 
                 val name = document.get("recipeName").toString()
 
-                    arraylistRecipeName.add(name)
+                arraylistRecipeName.add(name)
 
 
             }

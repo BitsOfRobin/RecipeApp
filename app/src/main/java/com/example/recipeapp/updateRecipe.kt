@@ -1,6 +1,5 @@
 package com.example.recipeapp
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
@@ -12,9 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import com.example.recipeapp.databinding.ActivityRecipeAddBinding
 import com.example.recipeapp.databinding.ActivityUpdateRecipeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -80,13 +77,22 @@ class updateRecipe : AppCompatActivity() {
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
 
+            val cache=MyCache()
+            val firebaseImg= binding.RecipeImage
+            val receivedRecipeName = intent.getStringExtra("recipeName").toString()
+            firebaseImg.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
             if(requestCode==100&& resultCode== RESULT_OK)
             {
                 ImageUri=data?.data!!
-                val firebaseImg= binding.RecipeImage
+
                 firebaseImg.setImageURI(ImageUri)
 
             }
+
+
+
+
+
 
 
         }
@@ -123,7 +129,7 @@ class updateRecipe : AppCompatActivity() {
                 if(progressDialog.isShowing)progressDialog.dismiss()
                 val storageReference= FirebaseStorage.getInstance().getReference("RecipeImg/$recipeName.jpg")
                 storageReference.putFile(ImageUri).addOnCompleteListener {
-                    firebaseImg.setImageURI(null)
+//                    firebaseImg.setImageURI(null)
                     if(progressDialog.isShowing)progressDialog.dismiss()
                     val imgBitmap= MediaStore.Images.Media.getBitmap(contentResolver, ImageUri)
                     cache.saveBitmapToCahche(recipeName,imgBitmap)
@@ -155,12 +161,15 @@ class updateRecipe : AppCompatActivity() {
 
             val cache=MyCache()
             val receivedRecipeName = intent.getStringExtra("recipeName").toString()
+            val receivedRecipeIngredients = intent.getStringExtra("recipeIngredients").toString()
+            val receivedRecipeSteps = intent.getStringExtra("recipeSteps").toString()
 
             Toast.makeText(this,receivedRecipeName,Toast.LENGTH_LONG).show()
 
             binding.recipeName.setText(receivedRecipeName)
             binding.RecipeImage.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
-            val btn=binding.updateRecipe
+            binding.recipeSteps.setText(receivedRecipeSteps)
+            binding.recipeIngredients.setText(receivedRecipeIngredients)
             var recipeType=""
             binding.spinnerRecipeTypes.onItemSelectedListener=object: AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
@@ -229,6 +238,7 @@ class updateRecipe : AppCompatActivity() {
                     }
                 }
             }
+            val btn=binding.updateRecipe
             btn.setOnClickListener {
 
 
@@ -283,7 +293,10 @@ class updateRecipe : AppCompatActivity() {
 
                     binding.errRecipeName.text=" "
                 }
-
+                val cache=MyCache()
+                val firebaseImg= binding.RecipeImage
+                val receivedRecipeName = intent.getStringExtra("recipeName").toString()
+                firebaseImg.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
 
                 try{
                     if(ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
@@ -295,57 +308,16 @@ class updateRecipe : AppCompatActivity() {
                         Toast.makeText(this,"Please fill up all data",Toast.LENGTH_LONG).show()
 
                     }
-                    addRecipe(ingredients,steps,recipeName,recipeType)
+
                 }
 
 
                 catch (e:UninitializedPropertyAccessException){
-                    Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"You do not attach any photo", Toast.LENGTH_SHORT).show()
 
                 }
 
-
-//        if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
-//            &&recipeType!=""&&recipeType!=" ")
-//            {
-//                val recipe= hashMapOf(
-//
-//                    "recipeName" to recipeName,
-//                    "ingredients" to ingredients,
-//                    "steps" to steps,
-//                    "recipeTypes" to recipeType
-//
-//
-//
-//
-//                )
-////        val  doc =doctor?.uid
-//
-////
-//
-//
-//                mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.set(recipe)?.addOnSuccessListener {
-//
-//
-//                    Toast.makeText(this,"Successfully added recipe",Toast.LENGTH_SHORT).show()
-//
-//
-//                }
-//                    ?.addOnFailureListener {
-//
-//                        Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
-//                    }
-//
-//
-//
-//
-//            }
-//
-//            else{
-//
-//                Toast.makeText(this,"Inputs are empty",Toast.LENGTH_SHORT).show()
-//
-//            }
+                addRecipe(ingredients,steps,recipeName,recipeType,receivedRecipeName)
 
             }
 
@@ -353,9 +325,15 @@ class updateRecipe : AppCompatActivity() {
         }
 
 
-        private fun addRecipe(ingredients:String,steps:String,recipeName:String,recipeType:String){
+        private fun addRecipe(
+            ingredients: String,
+            steps: String,
+            recipeName: String,
+            recipeType: String,
+            receivedRecipeName: String
+        ){
             val letter=isLetters(recipeName)
-            if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
+            if(ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
                 &&recipeType!=""&&recipeType!=" ")
             {
                 val recipe= hashMapOf(
@@ -374,7 +352,7 @@ class updateRecipe : AppCompatActivity() {
 //
 
 
-                mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.update(
+                mFirebaseDatabaseInstance?.collection("recipe")?.document(receivedRecipeName)?.set(
                     recipe as Map<String, Any>
                 )?.addOnSuccessListener {
 
