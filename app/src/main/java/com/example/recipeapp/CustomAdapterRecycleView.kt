@@ -22,6 +22,7 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
         fun onUpdateClick(position: Int)
 
         fun onDeleteClick(position: Int)
+        fun viewClick(position: Int)
     }
 
 
@@ -42,6 +43,13 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
             listener.onUpdateClick(position)
         }
 
+        holder.viewBtn.setOnClickListener {
+
+            listener.viewClick(position)
+
+        }
+
+
         val item = itemModel[position]
 
 
@@ -60,13 +68,14 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val recipeName: TextView = itemView.findViewById(R.id.imageName)
-        val ingredients  : TextView = itemView.findViewById(R.id.ingredientsItems)
-        val steps : TextView = itemView.findViewById(R.id.stepsItems)
-        val recipeTypes: TextView =itemView.findViewById(R.id.recipeTypesitems)
+//        val ingredients  : TextView = itemView.findViewById(R.id.ingredientsItems)
+//        val steps : TextView = itemView.findViewById(R.id.stepsItems)
+//        val recipeTypes: TextView =itemView.findViewById(R.id.recipeTypesitems)
 
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val deleteBtn=itemView.findViewById<Button>(R.id.deleteBtn)
         val updateBtn=itemView.findViewById<Button>(R.id.updateBtn)
+        val viewBtn=itemView.findViewById<Button>(R.id.viewBtn)
 
 
 
@@ -82,15 +91,15 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
 
 //            tvImageName?.text=itemModel[position].docName
 
-            ingredients?.text=itemModel.ingredients
-
-
-            steps?.text = itemModel.step
-//            val str= sendResult()
-//            var i= sendPosition()
-
-            recipeTypes?.text = itemModel.recipeType
-
+//            ingredients?.text=itemModel.ingredients
+//
+//
+//            steps?.text = itemModel.step
+////            val str= sendResult()
+////            var i= sendPosition()
+//
+//            recipeTypes?.text = itemModel.recipeType
+//
 
 
 

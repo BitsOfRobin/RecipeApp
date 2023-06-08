@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import com.example.recipeapp.databinding.ActivityUpdateRecipeBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -58,7 +59,7 @@ class updateRecipe : AppCompatActivity() {
             displaySpinner()
             getRecipeData()
 
-
+            showBottomNavi()
 
 
     }
@@ -164,7 +165,7 @@ class updateRecipe : AppCompatActivity() {
             val receivedRecipeIngredients = intent.getStringExtra("recipeIngredients").toString()
             val receivedRecipeSteps = intent.getStringExtra("recipeSteps").toString()
 
-            Toast.makeText(this,receivedRecipeName,Toast.LENGTH_LONG).show()
+//            Toast.makeText(this,receivedRecipeName,Toast.LENGTH_LONG).show()
 
             binding.recipeName.setText(receivedRecipeName)
             binding.RecipeImage.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
@@ -293,10 +294,10 @@ class updateRecipe : AppCompatActivity() {
 
                     binding.errRecipeName.text=" "
                 }
-                val cache=MyCache()
-                val firebaseImg= binding.RecipeImage
-                val receivedRecipeName = intent.getStringExtra("recipeName").toString()
-                firebaseImg.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
+//                val cache=MyCache()
+//                val firebaseImg= binding.RecipeImage
+//                val receivedRecipeName = intent.getStringExtra("recipeName").toString()
+//                firebaseImg.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
 
                 try{
                     if(ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
@@ -306,7 +307,10 @@ class updateRecipe : AppCompatActivity() {
                     }
                     else{
                         Toast.makeText(this,"Please fill up all data",Toast.LENGTH_LONG).show()
-
+                        val cache=MyCache()
+                        val firebaseImg= binding.RecipeImage
+                        val receivedRecipeName = intent.getStringExtra("recipeName").toString()
+                        firebaseImg.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
                     }
 
                 }
@@ -408,33 +412,33 @@ class updateRecipe : AppCompatActivity() {
 
         }
 
-//        private fun showBottomNavi(){
-//
-//            val bottomNavigation: BottomNavigationView = binding.bottomNavigationView
-//
-//            bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
-//                when (menuItem.itemId) {
-//                    R.id.navigation_Profile-> {
-//                        val intent=Intent(this,GoogleProfile::class.java)
-//                        startActivity(intent)
-//                        true
-//                    }
-//                    R.id.navigation_AddRecipe -> {
-//                        val intent=Intent(this,RecipeAdd::class.java)
-//                        startActivity(intent)
-//                        // Handle Search menu item click
-//                        true
-//                    }
-//                    R.id.navigation_ViewRecipe -> {
-//                        val intent= Intent(this,viewRecipe::class.java)
-//                        startActivity(intent)
-//                        true
-//                    }
-//                    else -> false
-//                }
-//            }
-//
-//        }
+        private fun showBottomNavi(){
+
+            val bottomNavigation: BottomNavigationView = binding.bottomNavigationView
+
+            bottomNavigation.setOnNavigationItemSelectedListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.navigation_Profile-> {
+                        val intent=Intent(this,GoogleProfile::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    R.id.navigation_AddRecipe -> {
+                        val intent=Intent(this,RecipeAdd::class.java)
+                        startActivity(intent)
+                        // Handle Search menu item click
+                        true
+                    }
+                    R.id.navigation_ViewRecipe -> {
+                        val intent= Intent(this,viewRecipe::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+        }
 
 
     }

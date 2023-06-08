@@ -74,6 +74,10 @@ class viewRecipe : AppCompatActivity() {
                             longClickForDocDel(position)
                         }
 
+                        override fun viewClick(position: Int) {
+                           toViewDetailRecipe(position,it as ArrayList<recipe>)
+                        }
+
 
                     }
                 )
@@ -258,6 +262,10 @@ class viewRecipe : AppCompatActivity() {
                           longClickForDocDel(position)
                         }
 
+                        override fun viewClick(position: Int) {
+                            toViewDetailRecipe(position,it as ArrayList<recipe>)
+                        }
+
 
                     })
 
@@ -283,6 +291,20 @@ class viewRecipe : AppCompatActivity() {
 //        Toast.makeText(this,arrRecipe[position].recipeName.toString(),Toast.LENGTH_LONG).show()
 
     }
+
+    private fun toViewDetailRecipe(position:Int,arrRecipe: ArrayList<recipe>){
+
+        val intent = Intent(this, DetailRecipe::class.java)
+        intent.putExtra("recipeName", arrRecipe[position].recipeName.toString())
+        intent.putExtra("recipeIngredients", arrRecipe[position].ingredients .toString())
+        intent.putExtra("recipeSteps", arrRecipe[position].step.toString())
+        intent.putExtra("recipeTypes", arrRecipe[position].recipeType.toString())
+//        intent.putExtra("position", position)
+        startActivity(intent)
+//        Toast.makeText(this,arrRecipe[position].recipeName.toString(),Toast.LENGTH_LONG).show()
+
+    }
+
 
 
     private fun showBottomNavi(){
