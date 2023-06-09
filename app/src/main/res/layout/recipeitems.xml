@@ -38,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                style="@style/headerStyle"
 
              />
 
@@ -64,9 +65,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_gravity="start"
+                style="@style/buttonStyle"
 
 
-                android:text="deleteBtn" />
+                android:text="delete" />
 
 <!--                <Button-->
 <!--                    android:id="@+id/viewBtn"-->
@@ -85,9 +87,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_gravity="start"
+                    style="@style/buttonStyle"
 
-
-                    android:text="updateBtn" />
+                    android:text="update" />
 
 
 
@@ -105,7 +107,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_gravity="start"
                     android:gravity="center"
-
+                    style="@style/buttonStyle"
                     android:text="view" />
 
 

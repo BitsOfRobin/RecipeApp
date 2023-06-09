@@ -5,14 +5,17 @@
             android:id="@+id/navigation_AddRecipe"
             android:title="@string/AddRecipe"
 
+
             />
         <item
             android:id="@+id/navigation_Profile"
             android:title="@string/profile"
+
            />
         <item
             android:id="@+id/navigation_ViewRecipe"
             android:title="@string/viewRecipe"
+
            />
 
 </menu>

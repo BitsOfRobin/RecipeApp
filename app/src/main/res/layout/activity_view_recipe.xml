@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <android.widget.SearchView
+                android:background="@drawable/bg_white_rounded"
                 android:id="@+id/searchRecipe"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"

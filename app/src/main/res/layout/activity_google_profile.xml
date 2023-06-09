@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:textColor="@color/black"
-
+            style="@style/normalStyle"
              android:text="email"/>
 
         <View
@@ -50,6 +50,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:text="name"
+            style="@style/normalStyle"
             />
 
         <View
@@ -62,7 +63,7 @@
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-
+            style="@style/buttonStyle"
             android:layout_gravity="center"
             android:text="@string/log_out"
             />
