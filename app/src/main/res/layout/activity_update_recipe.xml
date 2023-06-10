@@ -171,22 +171,22 @@
                                     android:id="@+id/updateRecipe"
                                     android:text="update recipe"
                                     android:layout_width="150dp"
-                                    android:layout_height="50dp"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_margin="20dp"
                                     style="@style/buttonStyle"
                                     />
 
 
-                    <Button
-                        android:id="@+id/cancelRecipe"
-                        android:text="cancel recipe"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="20dp"
-                        style="@style/buttonStyle"
-                        />
+<!--                    <Button-->
+<!--                        android:id="@+id/cancelRecipe"-->
+<!--                        android:text="cancel recipe"-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="20dp"-->
+<!--                        style="@style/buttonStyle"-->
+<!--                        />-->
 
                 </LinearLayout>
 

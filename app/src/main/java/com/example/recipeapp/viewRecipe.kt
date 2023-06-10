@@ -38,7 +38,7 @@ class viewRecipe : AppCompatActivity() {
 
 
 
-        doctorSearching()
+        recipeSearching()
 
 
 
@@ -93,8 +93,8 @@ class viewRecipe : AppCompatActivity() {
 
 
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Delete Doctor Alert")
-        builder.setMessage("Are you sure to delete Doctor?")
+        builder.setTitle("Delete Recipe Alert")
+        builder.setMessage("Are you sure to delete recipe?")
 
 
         builder.setPositiveButton(android.R.string.yes) { dialog, which ->
@@ -127,7 +127,7 @@ class viewRecipe : AppCompatActivity() {
     }
 
 
-    private fun doctorSearching(){
+    private fun recipeSearching(){
 
 
 

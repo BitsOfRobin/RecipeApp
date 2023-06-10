@@ -21,7 +21,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:scaleType="fitXY"
             android:src="@drawable/fui_ic_mail_white_24dp"
             app:civ_border_color="#FF000000"

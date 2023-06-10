@@ -4,6 +4,7 @@
         <item>Chinese Cuisine</item>
         <item>Western Cuisine</item>
         <item>Turkish Cuisine</item>
+        <item>Indian Cuisine</item>
         <!-- Add more values as needed -->
     </string-array>
 </resources>

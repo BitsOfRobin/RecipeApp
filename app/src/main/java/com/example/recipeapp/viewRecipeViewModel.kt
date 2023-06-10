@@ -95,7 +95,7 @@ class ViewRecipeViewModel:ViewModel() {
     fun getDataDoc() {
 
 
-        val doctor = FirebaseAuth.getInstance().currentUser
+
 
 
         mFirebaseDatabaseInstance = FirebaseFirestore.getInstance()
