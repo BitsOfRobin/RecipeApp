@@ -29,7 +29,7 @@ class ViewRecipeViewModel:ViewModel() {
         get()=_searchQueryLiveData
 
     var mFirebaseDatabaseInstance: FirebaseFirestore? = null
-    var docDetail: String? = null
+
     val recipeListSearch = ArrayList<recipe>()
 
     //    private lateinit var binding: ActivityMainBinding
@@ -44,14 +44,6 @@ class ViewRecipeViewModel:ViewModel() {
     init {
 
         getDataDoc()
-//        getImg()
-//        retrieveCache()
-
-
-//        if(p0.isNotEmpty()){
-//            dataChanged(p0,"")
-//
-//        }
 
 
 
@@ -70,7 +62,7 @@ class ViewRecipeViewModel:ViewModel() {
     }
 
 
-    fun searchDoctor(p0:String){
+    fun searchRecipe(p0:String){
 
         val temp = ArrayList<String>()
 
@@ -89,20 +81,6 @@ class ViewRecipeViewModel:ViewModel() {
         }
 
 
-//        for (k in arraylistHospital.indices) {
-//            if (arraylistHospital[k].contains(p0, true)) {
-//
-//                tempHos.add(arraylistName[k])
-//
-//            }
-//        }
-//        for (l in arraylistName.indices) {
-//            if (arraylistName[l].contains(p0, true)) {
-//
-//                tempName.add(arraylistName[l])
-//
-//            }
-//        }
 
         if (temp.isNotEmpty()) {
 
@@ -119,7 +97,7 @@ class ViewRecipeViewModel:ViewModel() {
 
         val doctor = FirebaseAuth.getInstance().currentUser
 
-        docDetail = doctor?.uid
+
         mFirebaseDatabaseInstance = FirebaseFirestore.getInstance()
 
 
@@ -155,12 +133,11 @@ class ViewRecipeViewModel:ViewModel() {
                 arraylistSteps.add(steps)
 
 
-//                arraylistData.add("Name: $name \nProfessional:\n $pro \nAvailable Date:\n$date \n")
+
             }
 
 
-//                Toast.makeText(this, "Enter the first read ${arraylistTime.toString()} ", Toast.LENGTH_SHORT).show()
-//                Toast.makeText(this, "Enter the firebase id ${document.id.toString()} ", Toast.LENGTH_SHORT).show()
+
 
 
         _arrRecipeName.value = arraylistRecipeName
@@ -270,10 +247,10 @@ class ViewRecipeViewModel:ViewModel() {
 
 
 
-//                Toast.makeText(this, "${arraylistName }failed to retrieve iamge$extractName", Toast.LENGTH_SHORT).show()
+
             }
 
-//                dt++
+
         }
 
 
@@ -282,18 +259,6 @@ class ViewRecipeViewModel:ViewModel() {
 
 
 
-//        }
-
-//        val customAdapter = CustomAdapter(modalList, this)
-//
-//
-//
-////        docView.adapter = customAdapter
-//
-//        searchDoc(customAdapter)
-//
-//        swipe.isRefreshing=false
-//        if(call!=0){
 
     }
 
@@ -344,7 +309,7 @@ class ViewRecipeViewModel:ViewModel() {
 
 
 
-    fun deletionDoctor(i:Int) {
+    fun deletionRecipe(i:Int) {
 
         mFirebaseDatabaseInstance = FirebaseFirestore.getInstance()
 
@@ -359,7 +324,7 @@ class ViewRecipeViewModel:ViewModel() {
 
 
 
-            val deleteDoc = recipeList.get(i).recipeName
+
 
 
                 val docRef = mFirebaseDatabaseInstance!!.collection("recipe")
@@ -386,93 +351,13 @@ class ViewRecipeViewModel:ViewModel() {
                 recipeList.removeAt(i)
 
                 _recipeList.value=recipeList
-//                                val arr = CustomAdapter(modalList, this)
-//                                arr.notifyDataSetChanged()
-//                                docView.adapter = arr
+
 
             }
 
 
         }
 
-
-
-
-    fun deletionDocAfterSearch(dtname: String,i:Int) {
-
-        mFirebaseDatabaseInstance = FirebaseFirestore.getInstance()
-
-
-
-
-
-
-
-
-        if(i>-1) {
-
-
-
-            val deleteDoc =recipeListSearch.get(i).recipeName
-
-            if (deleteDoc =="Dr $dtname") {
-                val docRef = mFirebaseDatabaseInstance!!.collection("recipe")
-                    .document("${recipeListSearch.get(i).recipeName}")
-
-                docRef
-                    .delete()
-                    .addOnSuccessListener {
-
-                    }
-                    .addOnFailureListener {
-
-                    }
-
-
-                val fireb =
-                    Firebase.storage.reference.child("Img/${recipeListSearch.get(i).recipeName}.jpg")
-                fireb.delete().addOnSuccessListener {
-
-                }.addOnFailureListener {
-
-                }
-
-                recipeListSearch.removeAt(i)
-
-                _recipeList.value=recipeListSearch
-//                                val arr = CustomAdapter(modalList, this)
-//                                arr.notifyDataSetChanged()
-//                                docView.adapter = arr
-
-            }
-
-
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    fun callForSearching(temp:ArrayList<String>,searchQuery:String){
-
-
-        if (temp.isNotEmpty()) {
-            dataChanged(temp, searchQuery)
-        }
-    }
 
 
 

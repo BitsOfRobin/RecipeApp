@@ -73,7 +73,7 @@
 
                 android:inputType="textMultiLine"
                 android:minHeight="48dp"
-                android:maxLength="100"
+                android:maxLength="1000"
                 android:textStyle="italic"
 
                 android:importantForAutofill="no"
@@ -106,7 +106,7 @@
 
                 android:inputType="textMultiLine"
                 android:minHeight="48dp"
-                android:maxLength="100"
+                android:maxLength="1000"
                 android:textStyle="italic"
 
                 android:importantForAutofill="no"
@@ -138,7 +138,7 @@
 
                 android:inputType="textMultiLine"
                 android:minHeight="48dp"
-                android:maxLength="100"
+                android:maxLength="1000"
                 android:textStyle="italic"
 
                 android:importantForAutofill="no"

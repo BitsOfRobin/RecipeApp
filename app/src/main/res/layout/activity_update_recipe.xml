@@ -13,14 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="30dp"
+
+        android:layout_marginTop="10dp"
         android:background="#ECD285">
         <ScrollView
+            android:id="@+id/scorllView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
 
                 <ImageView
@@ -74,7 +77,7 @@
 
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:maxLength="100"
+                    android:maxLength="1000"
                     android:minHeight="48dp"
 
                     android:textStyle="italic"
@@ -98,7 +101,7 @@
 
                 <EditText
                     android:id="@+id/recipeIngredients"
-
+                    android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginStart="20dp"
@@ -106,7 +109,7 @@
 
                     android:inputType="textMultiLine"
                     android:minHeight="48dp"
-                    android:maxLength="100"
+                    android:maxLength="1000"
                     android:textStyle="italic"
 
                     android:importantForAutofill="no"
@@ -129,7 +132,7 @@
 
                 <EditText
                     android:id="@+id/recipeSteps"
-
+                    android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginStart="20dp"
@@ -137,7 +140,7 @@
                     android:inputType="textMultiLine"
 
                     android:minHeight="48dp"
-                    android:maxLength="100"
+                    android:maxLength="1000"
                     android:textStyle="italic"
 
                     android:importantForAutofill="no"

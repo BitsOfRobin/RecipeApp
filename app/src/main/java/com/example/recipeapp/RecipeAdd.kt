@@ -308,47 +308,6 @@ class RecipeAdd : AppCompatActivity() {
             }
 
 
-//        if(letter&&ingredients!=""&&ingredients!=" "&&steps!=""&&steps!=" "&&recipeName!=""&&recipeName!=" "
-//            &&recipeType!=""&&recipeType!=" ")
-//            {
-//                val recipe= hashMapOf(
-//
-//                    "recipeName" to recipeName,
-//                    "ingredients" to ingredients,
-//                    "steps" to steps,
-//                    "recipeTypes" to recipeType
-//
-//
-//
-//
-//                )
-////        val  doc =doctor?.uid
-//
-////
-//
-//
-//                mFirebaseDatabaseInstance?.collection("recipe")?.document( "$recipeName")?.set(recipe)?.addOnSuccessListener {
-//
-//
-//                    Toast.makeText(this,"Successfully added recipe",Toast.LENGTH_SHORT).show()
-//
-//
-//                }
-//                    ?.addOnFailureListener {
-//
-//                        Toast.makeText(this,"Failed to add recipe", Toast.LENGTH_SHORT).show()
-//                    }
-//
-//
-//
-//
-//            }
-//
-//            else{
-//
-//                Toast.makeText(this,"Inputs are empty",Toast.LENGTH_SHORT).show()
-//
-//            }
 
         }
 

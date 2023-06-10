@@ -106,7 +106,7 @@ class viewRecipe : AppCompatActivity() {
 
             viewRecipeViewModel=ViewModelProvider(this).get(ViewRecipeViewModel::class.java)
 
-            viewRecipeViewModel.deletionDoctor(i)
+            viewRecipeViewModel.deletionRecipe(i)
 //            Toast.makeText(this, "Dr $dtname ,$i", Toast.LENGTH_LONG).show()
 
 
@@ -156,7 +156,7 @@ class viewRecipe : AppCompatActivity() {
                     viewRecipeViewModel.getSearchQuery(p0)
 //                        showMsg(p0)
 
-                    viewRecipeViewModel.searchDoctor(p0)
+                    viewRecipeViewModel.searchRecipe(p0)
                     paramForSearching(p0)
 //                        for (i in arraylistPro.indices) {
 //                            if (arraylistPro[i].contains(p0, true)) {
@@ -195,7 +195,7 @@ class viewRecipe : AppCompatActivity() {
                     viewRecipeViewModel.getSearchQuery(p0)
 //                        showMsg(p0)
 
-                    viewRecipeViewModel.searchDoctor(p0)
+                    viewRecipeViewModel.searchRecipe(p0)
                     paramForSearching(p0)
                 } else {
 //                        getAdapter()

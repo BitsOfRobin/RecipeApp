@@ -41,20 +41,7 @@ class updateRecipe : AppCompatActivity() {
 
             }
         }
-//        binding.uploadImageBtn.setOnClickListener {
-//
-//            try{
-//                uploadImage()
-//            }
-//
-//
-//            catch (e:UninitializedPropertyAccessException){
-//                Toast.makeText(this,"You did not attach any photo", Toast.LENGTH_SHORT).show()
-//
-//            }
-//
-//
-//        }
+
 
             displaySpinner()
             getRecipeData()
@@ -171,6 +158,16 @@ class updateRecipe : AppCompatActivity() {
             binding.RecipeImage.setImageBitmap(cache.retrieveBitmapFromCache(receivedRecipeName))
             binding.recipeSteps.setText(receivedRecipeSteps)
             binding.recipeIngredients.setText(receivedRecipeIngredients)
+//
+//            binding.recipeSteps.isVerticalScrollBarEnabled = true // Enable vertical scroll bar
+//            binding.recipeSteps.setHorizontallyScrolling(false)
+//            binding.scorllView.addView(binding.recipeSteps)
+//
+//
+//            binding.recipeIngredients.isVerticalScrollBarEnabled = true // Enable vertical scroll bar
+//            binding.recipeIngredients.setHorizontallyScrolling(false)
+//            binding.scorllView.addView(binding.recipeIngredients)
+
             var recipeType=""
             binding.spinnerRecipeTypes.onItemSelectedListener=object: AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(

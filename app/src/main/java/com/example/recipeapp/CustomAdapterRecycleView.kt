@@ -70,7 +70,7 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
         val recipeName: TextView = itemView.findViewById(R.id.imageName)
 //        val ingredients  : TextView = itemView.findViewById(R.id.ingredientsItems)
 //        val steps : TextView = itemView.findViewById(R.id.stepsItems)
-//        val recipeTypes: TextView =itemView.findViewById(R.id.recipeTypesitems)
+        val recipeTypes: TextView =itemView.findViewById(R.id.recipeTypes)
 
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val deleteBtn=itemView.findViewById<Button>(R.id.deleteBtn)
@@ -98,7 +98,7 @@ class CustomAdapterRecycleView(var itemModel: ArrayList<recipe>, var context: Co
 ////            val str= sendResult()
 ////            var i= sendPosition()
 //
-//            recipeTypes?.text = itemModel.recipeType
+            recipeTypes?.text = itemModel.recipeType
 //
 
 
